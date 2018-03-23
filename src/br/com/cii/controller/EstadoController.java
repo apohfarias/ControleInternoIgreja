@@ -72,7 +72,7 @@ public class EstadoController {
 			rs = comando.executeQuery("SELECT * FROM estado");
 			while (rs.next()) {
 				Estado temp = new Estado();
-				
+
 				temp.setIdEstado(rs.getInt("idEstado"));
 				temp.setNome(rs.getString("nome"));
 
@@ -82,7 +82,7 @@ public class EstadoController {
 			e.printStackTrace();
 		}
 	}
-	
+
 	private void conectar() {
 		// TODO Auto-generated method stub
 		try {
@@ -93,6 +93,30 @@ public class EstadoController {
 			e.printStackTrace();
 		}
 
+	}
+
+
+	public void inserir() {
+
+	}
+	
+	public void apagar() {
+
+	}
+	
+	public void apagarPorId() {
+
+	}
+	
+
+	public void fechar() {
+		try {
+			comando.close();
+			conn.close();
+			System.out.println("Conexão Fechada");
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 
 }

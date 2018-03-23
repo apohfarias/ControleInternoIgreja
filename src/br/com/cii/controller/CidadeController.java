@@ -26,8 +26,6 @@ public class CidadeController {
 	// Instanciando comando
 	private Statement comando;
 
-
-
 	public List<Cidade> getCidades() {
 		return cidades;
 	}
@@ -74,8 +72,8 @@ public class CidadeController {
 				Cidade temp = new Cidade();
 
 				temp.setIdCidade(rs.getInt("idCidade"));
-				//temp.setEstado(rs.getString("estado"));
 				temp.setNome(rs.getString("nome"));
+				// temp.setEstado(rs.getString("estado"));
 
 				cidades.add(temp);
 			}
@@ -94,6 +92,30 @@ public class CidadeController {
 			e.printStackTrace();
 		}
 
+	}
+
+
+	public void inserir() {
+
+	}
+
+	public void apagar() {
+
+	}
+
+	public void apagarPorId() {
+
+	}
+	
+
+	public void fechar() {
+		try {
+			comando.close();
+			conn.close();
+			System.out.println("Conexão Fechada");
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 
 }
