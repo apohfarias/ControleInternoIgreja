@@ -1,8 +1,7 @@
-package br.com.cii.controller;
+package br.com.cii.beans;
 
 import br.com.cii.dao.Conexao;
 import br.com.cii.model.Cidade;
-import br.com.cii.model.Estado;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -17,30 +16,30 @@ import javax.faces.context.FacesContext;
 
 @ManagedBean
 @ApplicationScoped
-public class EstadoController {
+public class CidadeBean {
 	// Listar cidade
-	private List<Estado> estados = new ArrayList<Estado>();
+	private List<Cidade> cidades = new ArrayList<Cidade>();
 	// Instanciando nova cidade
-	private Estado estado = new Estado();
+	private Cidade cidade = new Cidade();
 	// Instanciando conexao
 	private Connection conn;
 	// Instanciando comando
 	private Statement comando;
 
-	public List<Estado> getEstados() {
-		return estados;
+	public List<Cidade> getCidades() {
+		return cidades;
 	}
 
-	public void setEstados(List<Estado> estados) {
-		this.estados = estados;
+	public void setCidades(List<Cidade> cidades) {
+		this.cidades = cidades;
 	}
 
-	public Estado getEstado() {
-		return estado;
+	public Cidade getCidade() {
+		return cidade;
 	}
 
-	public void setEstado(Estado estado) {
-		this.estado = estado;
+	public void setCidade(Cidade cidade) {
+		this.cidade = cidade;
 	}
 
 	public Connection getConn() {
@@ -59,24 +58,24 @@ public class EstadoController {
 		this.comando = comando;
 	}
 
-	public EstadoController() {
+	public CidadeBean() {
 		buscarTodos();
 	}
 
-	private void buscarTodos() {
-		// TODO Auto-generated method stub
+	public void buscarTodos() {
 		conectar();
 		ResultSet rs;
-		estados = new ArrayList<>();
+		cidades = new ArrayList<>();
 		try {
-			rs = comando.executeQuery("SELECT * FROM estado");
+			rs = comando.executeQuery("SELECT * FROM cidade");
 			while (rs.next()) {
-				Estado temp = new Estado();
+				Cidade temp = new Cidade();
 
-				temp.setIdEstado(rs.getInt("idEstado"));
+				temp.setIdCidade(rs.getInt("idCidade"));
 				temp.setNome(rs.getString("nome"));
+				// temp.setEstado(rs.getString("estado"));
 
-				estados.add(temp);
+				cidades.add(temp);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -99,11 +98,11 @@ public class EstadoController {
 	public void inserir() {
 
 	}
-	
+
 	public void apagar() {
 
 	}
-	
+
 	public void apagarPorId() {
 
 	}

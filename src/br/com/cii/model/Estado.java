@@ -17,17 +17,10 @@ public class Estado {
 	@Column(name="nome")
 	private String nome;
 	
-		
+	//Metodo construtor	
 	public Estado() {
 		
-	}
-
-	public Estado(int idEstado, String nome) {
-		super();
-		this.idEstado = idEstado;
-		this.nome = nome;
-	}
-	
+	}	
 	public int getIdEstado() {
 		return idEstado;
 	}

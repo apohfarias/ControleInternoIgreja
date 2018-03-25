@@ -6,16 +6,19 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:f="http://xmlns.jcp.org/jsf/core">
 
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Controle Interno Igreja</title>
-</head>
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+	<title>Estados</title>
+</h:head>
 <h:body>
 
 	<h1>Listagem de estados</h1>
-	<h:link value="Novo estado" outcome="adicionar" />
+	<h:messages globalOnly="true" />
 
-	<h:dataTable value="#{estadoController.estado}" var="estado">
+	<h:link value="Novo estado" />
+
+	<h:dataTable value="#{EstadoBean.estados}" var="estado">
 		<h:column>
 			<f:facet name="header">#</f:facet>
             #{estado.id}
@@ -23,7 +26,7 @@
 		<h:column>
 			<f:facet name="header">Nome</f:facet>
             #{estado.nome}
-        </h:column>		
+        </h:column>
 		<h:column>
 			<h:link value="Editar" outcome="editar">
 				<f:param name="estado" value="#{estado.idEstado}" />
@@ -37,4 +40,5 @@
 	</h:dataTable>
 
 </h:body>
+
 </html>

@@ -1,6 +1,5 @@
 package br.com.cii.model;
 
-
 public class Cidade {
 	private int idCidade;
 	private String nome;

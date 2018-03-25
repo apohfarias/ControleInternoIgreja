@@ -1,4 +1,4 @@
-package br.com.cii.controller;
+package br.com.cii.beans;
 
 import java.sql.SQLException;
 
