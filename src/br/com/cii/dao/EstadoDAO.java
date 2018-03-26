@@ -85,6 +85,7 @@ public class EstadoDAO {
 	// METODO QUE SELECIONA POR ID
 	public Estado selecionar(long id) throws Exception {
 		Estado estado;
+
 		EntityManager em = JpaResourceBean.getEntityManagerFactory().createEntityManager();
 
 		try {

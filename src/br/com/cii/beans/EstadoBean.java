@@ -54,6 +54,7 @@ public class EstadoBean {
 		return estados;
 	}
 
+	//PARA PERSISTIR
 	public String inserir() {
 		try {
 			estadoDao.inserir(estado);
