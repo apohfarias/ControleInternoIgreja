@@ -1,27 +1,15 @@
 package br.com.cii.beans;
 
-import br.com.cii.dao.Conexao;
-import br.com.cii.dao.EstadoDAO;
-import br.com.cii.model.Cidade;
-import br.com.cii.model.Estado;
-
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
-import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
-import javax.persistence.Query;
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
+
+import br.com.cii.dao.EstadoDAO;
+import br.com.cii.model.Estado;
 
 @ManagedBean
 @ViewScoped
@@ -39,7 +27,6 @@ public class EstadoBean {
 		try {
 			estados = estadoDao.listarTodos();
 		} catch (Exception e) {
-			// TODO: handle exception
 			FacesContext context = FacesContext.getCurrentInstance();
 			context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, e.getMessage(), e.getMessage()));
 			context.getExternalContext().getFlash().setKeepMessages(true);
@@ -65,7 +52,6 @@ public class EstadoBean {
 			context.getExternalContext().getFlash().setKeepMessages(true);
 
 		} catch (Exception e) {
-			// TODO: handle exception
 			FacesContext context = FacesContext.getCurrentInstance();
 			context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, e.getMessage(), e.getMessage()));
 			context.getExternalContext().getFlash().setKeepMessages(true);
@@ -85,7 +71,6 @@ public class EstadoBean {
 			context.getExternalContext().getFlash().setKeepMessages(true);
 
 		} catch (Exception e) {
-			// TODO: handle exception
 			FacesContext context = FacesContext.getCurrentInstance();
 			context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, e.getMessage(), e.getMessage()));
 			context.getExternalContext().getFlash().setKeepMessages(true);
@@ -105,7 +90,6 @@ public class EstadoBean {
 			context.getExternalContext().getFlash().setKeepMessages(true);
 
 		} catch (Exception e) {
-			// TODO: handle exception
 			FacesContext context = FacesContext.getCurrentInstance();
 			context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, e.getMessage(), e.getMessage()));
 			context.getExternalContext().getFlash().setKeepMessages(true);
@@ -115,24 +99,21 @@ public class EstadoBean {
 
 	}
 
-	public String selecionar() {
+	public void selecionar() {
 		try {
 			estadoDao.selecionar(estado.getIdEstado());
 			if (estado == null || estado.getIdEstado() == 0) {
 				estado = new Estado();
 
-				throw new Exception("Estado n√£o encontrado!");
+				throw new Exception("Estado n„o encontrado!");
 			}
 
-		} catch (Exception e) {
-			// TODO: handle exception
+		} catch (Exception e) {		
 			FacesMessage message = new FacesMessage(e.getMessage());
 			message.setSeverity(FacesMessage.SEVERITY_ERROR);
 			FacesContext.getCurrentInstance().addMessage(null, message);
 
 		}
-		return "home";
-
 	}
 
 }

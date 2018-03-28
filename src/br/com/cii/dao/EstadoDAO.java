@@ -21,7 +21,6 @@ public class EstadoDAO {
 			estados = em.createQuery("from Estado").getResultList();
 
 		} catch (Exception e) {
-			// TODO: handle exception
 			throw new Exception(e);
 		} finally {
 			em.close();
@@ -40,8 +39,8 @@ public class EstadoDAO {
 			em.getTransaction().commit();// realmente salva no bd
 
 		} catch (Exception e) {
-			// TODO: handle exception
-			em.getTransaction().rollback();
+				em.getTransaction().rollback();
+				 throw new Exception(e);
 		} finally {
 			em.close();// fecha a conexão do bd
 		}
@@ -57,8 +56,8 @@ public class EstadoDAO {
 			em.getTransaction().commit();// realmente salva no bd
 
 		} catch (Exception e) {
-			// TODO: handle exception
 			em.getTransaction().rollback();
+			 throw new Exception(e);
 		} finally {
 			em.close();// fecha a conexão do bd
 		}
@@ -74,9 +73,9 @@ public class EstadoDAO {
 			em.remove(estado);
 			em.getTransaction().commit();// realmente salva no bd
 
-		} catch (Exception e) {
-			// TODO: handle exception
+		} catch (Exception e) {	
 			em.getTransaction().rollback();
+			 throw new Exception(e);
 		} finally {
 			em.close();// fecha a conexão do bd
 		}
@@ -90,8 +89,7 @@ public class EstadoDAO {
 
 		try {
 			estado = em.find(Estado.class, id);
-		} finally {
-			// TODO: handle finally clause
+		} finally {		
 			em.close();
 		}
 

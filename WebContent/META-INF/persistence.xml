@@ -8,7 +8,7 @@
 	<persistence-unit name="controleinternoigreja"
 		transaction-type="RESOURCE_LOCAL">
 
-		<provider>org.hibernate.ejb.HibernatePersistence</provider>
+		<provider> org.hibernate.jpa.HibernatePersistenceProvider </provider>
 
 		<class>br.com.cii.beans.Estado</class>
 		<class>br.com.cii.beans.Cidade</class>
@@ -18,7 +18,7 @@
 			<property name="javax.persistence.jdbc.url"
 				value="jdbc:mysql://localhost:3306/controleinternoigreja?createDatabaseIfNotExist=true" />
 			<property name="javax.persistence.jdbc.user" value="root" />
-			<property name="javax.persistence.jdbc.password" value="123" />
+			<property name="javax.persistence.jdbc.password" value="" />
 
 			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQL57Dialect" />
 			<property name="hibernate.show_sql" value="true" />
