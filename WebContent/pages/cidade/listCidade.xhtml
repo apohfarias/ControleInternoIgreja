@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+<h:head>
+    <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1" http-equiv="X-UA-Conpatible" />
+    <h:outputStylesheet library="css" name="bootstrap.min.css" />
+	<title>Listar Estados</title>
+	<style type="text/css">
+.tableOutput {
+	margin: 12px;
+	width: 98% !important;
+}
+
+.tab {
+	display: inline-block;
+	margin-left: -2px;
+}
+</style>
+</h:head>
+
+<h:body>
+	<div class="container">
+		<div class="navbar navbar-inverse">
+			<div class="navbar-brand">Listar Estados</div>
+		</div>
+		<table class="table table-bordered table-striped tableOutput">
+			<thead>
+				<tr>
+					<th>Nome</th>
+					<th>Editar</th>
+					<th>Apagar</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td><h:outputText value="#{estadoBean.estado.nome}" /></td>
+					<td><a href="#"><span class="glyphicon glyphicon-edit" /></a></td>
+					<td><a href="#"><span class="glyphicon glyphicon-trash" /></a></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</h:body>
+</html>
